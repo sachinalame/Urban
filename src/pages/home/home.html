@@ -1,0 +1,77 @@
+<!-- <ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header> -->
+
+<ion-content padding class="bg-image-view">
+  <button ion-button color="dark" clear icon-only menuToggle>
+    <ion-icon name='menu' is-active="false"></ion-icon>
+  </button>
+  <span class="banner1">TO TRAVEL IS </span>
+  <span class="banner2">TO LIVE</span>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <button *ngIf="startPointAddress===''" ion-button block color="light" icon-start (click)="selectLocation()">
+            <ion-icon name="locate"></ion-icon>
+            Select your starting point
+          </button>
+          <ion-card style="cursor:pointer;width:100%;" *ngIf="startPointAddress!==''" (click)="selectLocation()">
+            <ion-card-content>
+              <strong>Starting Point</strong>
+              {{startPointAddress}}
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-6>
+          <button *ngIf="startDate===null" style="width:100%;" ion-button color="light" icon-start (click)="selectPickupTime()">
+            <ion-icon name="calendar"></ion-icon>
+            Pickup Time
+          </button>
+          <ion-card style="cursor:pointer;width:100%;" *ngIf="startDate!==null" (click)="selectPickupTime()">
+            <ion-card-content>
+              <strong>Start Time</strong>
+              {{startDate | date:'EEEE, d MMM'}} {{startTime | date:'h:mm a'}}
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col col-6>
+          <button *ngIf="endDate===null" style="width:100%;" ion-button color="light" icon-start (click)="selectDropoffTime()">
+            <ion-icon name="calendar"></ion-icon>
+            Dropoff Time
+          </button>
+          <ion-card style="cursor:pointer;width:100%;" *ngIf="endDate!==null" (click)="selectDropoffTime()">
+            <ion-card-content>
+              <strong>End Time</strong>
+              {{endDate | date:'EEEE, d MMM'}} {{endTime | date:'h:mm a'}}
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+      <ion-row justify-content-center>
+        <ion-col col-6 style="margin-top:15px;">
+          <!-- <button [disabled]="startPointAddress==='' || startDate===null || endDate===null" ion-button color="secondary" icon-start
+            (click)="findCars()">
+            FIND CARS
+          </button> -->
+          <button ion-button color="secondary" icon-start (click)="findCars()">
+            FIND CARS
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

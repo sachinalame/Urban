@@ -1,0 +1,26 @@
+page-home {
+    
+}
+.bg-image-view{
+    background: url("../../assets/imgs/road-trip2.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+}
+
+.banner1{
+    font-weight: bold;
+    font-style: italic;
+    color: yellow;
+    font-size: large;
+}
+.banner2{
+    font-weight: bold;
+    // font-style: italic;
+    color: #065006;
+    font-size: x-large;
+}
+
+.btn-small-text{
+    font-size: xx-small;
+}

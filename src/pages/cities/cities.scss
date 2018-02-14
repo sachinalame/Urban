@@ -1,0 +1,32 @@
+// .vertical-align-content > *
+// {
+//      display: flex!important;
+//      align-content: center!important;
+//      align-items: center!important;
+// }
+
+.city-item {
+    padding: 5px;
+    background-color: rgb(250, 237, 237);
+    text-align: center;
+    font-size: xx-small;
+    cursor: pointer;
+}
+
+// .city-item:hover{
+//     border: 1px solid gray;
+// }
+
+// .other-city-item:hover{
+//     border: 1px solid gray;
+// }
+
+.other-city-item {
+    background-color: rgb(250, 237, 237);
+    font-size: xx-small;
+    cursor: pointer;
+}
+
+.selected-city{
+    border: 1px solid limegreen;
+}

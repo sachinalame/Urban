@@ -1,0 +1,56 @@
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWsrBfqfJ1m2ESCI_Ry3uZgdXH7ICrd3A&libraries=places&callback=initAutocomplete"
+    async defer></script>
+
+<ion-header>
+    <ion-toolbar color="dark">
+        <ion-title>
+            Select your location
+        </ion-title>
+        <ion-buttons start>
+            <button ion-button (click)="dismissThisPage()">
+                <span ion-text color="primary" showWhen="ios">Cancel</span>
+                <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="vertical-align-content">
+
+    <ion-card style="cursor:pointer;" (click)="selectCity()">
+        <ion-card-content>
+            <span *ngIf="selectedCity==='city'">Select your city</span>
+            <span *ngIf="selectedCity!=='city'">{{selectedCity}}</span>
+        </ion-card-content>
+    </ion-card>
+
+    <div *ngIf="selectedCity!=='city'">
+        <ion-list>
+            <ion-item>
+                <!-- <ion-label floating style="font-size: small;">Tell us your starting point in {{selectedCity}}</ion-label>
+                <ion-input type="text" class="form-control" placeholder="Location" name="Location" [(ngModel)]="address" #LocationCtrl="ngModel"
+                Googleplace (setAddress)="getAddressOnChange($event,LocationCtrl)"></ion-input> -->
+                <!-- <input type="radio" name="startPoint"> -->
+                <input type="text" class="search-location" placeholder="Search Location" name="Location" [(ngModel)]="address" #LocationCtrl="ngModel"
+                    Googleplace (setAddress)="getAddressOnChange($event,LocationCtrl)">
+            </ion-item>
+        </ion-list>
+        <br>
+        <ion-card style="cursor:pointer;" (click)="getCurrentLoaction()">
+            <ion-card-content>
+                <!-- <input type="radio" name="startPoint"> -->
+                <ion-icon name="locate"></ion-icon> &nbsp;&nbsp;&nbsp;
+                <span>Current Location</span>
+            </ion-card-content>
+        </ion-card>
+    </div>
+
+    <ion-card *ngIf="startPointAddress!==''">
+        <ion-card-content>
+            <span>{{startPointAddress}}</span>
+        </ion-card-content>
+    </ion-card>
+    <br>
+    <br>
+    <button [disabled]="startPointAddress===''" ion-button block color="secondary" (click)="gotoHome()">Conitnue</button>
+</ion-content>

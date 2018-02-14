@@ -1,0 +1,44 @@
+<!-- <ion-header>
+    <ion-toolbar>
+        <button ion-button menuToggle>
+            <ion-icon name="close"></ion-icon>
+        </button>
+        <ion-title>Select your pickup city</ion-title>
+    </ion-toolbar>
+</ion-header> -->
+<ion-header>
+    <ion-toolbar color="dark">
+        <ion-title>
+            Select your pickup city
+        </ion-title>
+        <ion-buttons start>
+            <button ion-button (click)="dismissThis()">
+                <span ion-text color="primary" showWhen="ios">Cancel</span>
+                <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<p>
+    cities list goes here...
+</p>
+<ion-content padding class="vertical-align-content">
+    <ion-searchbar (ionInput)="getSearchingCity($event)"></ion-searchbar>
+    <h6>POPULAR CITIES</h6>
+    <ion-grid>
+        <ion-row>
+            <ion-col *ngFor="let city of popularCities">
+                <div class="city-item" (click)="selectCity(city)" [ngClass]="{'selected-city':city===selectedCity}">
+                    {{city}}
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <h6>OTHER CITIES</h6>
+    <ion-list>
+        <div class="other-city-item" ion-item *ngFor="let city of otherCities" (click)="selectCity(city)" 
+        [ngClass]="{'selected-city':city===selectedCity}">
+            {{city}}
+        </div>
+    </ion-list>
+</ion-content>
